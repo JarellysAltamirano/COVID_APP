@@ -25,9 +25,13 @@ class MainActivity : AppCompatActivity() {
 
        lista.setOnItemClickListener { parent, view, position, id ->
            val intent = Intent(this, PacienteActivity::class.java)
-           intent.putExtra("paciente",listapaciente[position])
+           intent.putExtra("id",listapaciente[position].idPaciente)
            startActivity(intent)
        }
+        floatingActionButton.setOnClickListener {
+            val intent = Intent(this,NuevoPacienteAtivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
