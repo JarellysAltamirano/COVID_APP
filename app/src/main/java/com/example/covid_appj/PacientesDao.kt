@@ -8,10 +8,8 @@ interface PacientesDao {
     @Query("SELECT * FROM pacientes")
     fun getAll(): LiveData<List<paciente>>
 
-
     @Query("SELECT * FROM pacientes WHERE idPaciente = :id")
     fun get(id: Int): LiveData<paciente>
-
 
     @Insert
     fun insertAll(vararg paciente: paciente)

@@ -10,8 +10,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        inicio();
+    }
 
-        var listapaciente= emptyList<paciente>()
+    fun inicio() {
+        var listapaciente = emptyList<paciente>()
 
         val database = AppDatabase.getDatabase(this)
 
@@ -19,6 +22,8 @@ class MainActivity : AppCompatActivity() {
             listapaciente = it
 
             val adapter = pacienteAdapter(this, listapaciente)
+
+
 
             lista.adapter = adapter
         })

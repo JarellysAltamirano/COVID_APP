@@ -47,4 +47,14 @@
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edadPacien" />
+
+    <TextView
+        android:id="@+id/direccion_pac"
+        android:layout_width="238dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sintomas_que_presenta" />
 </androidx.constraintlayout.widget.ConstraintLayout>

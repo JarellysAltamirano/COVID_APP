@@ -12,6 +12,7 @@ class pacienteAdapter(private val mContext: Context, private val listapaciente: 
         val layout = LayoutInflater.from(mContext).inflate(R.layout.paciente_list, parent, false)
 
         val paciente = listapaciente[position]
+
         layout.txtnombre_paciente.text = paciente.nombre
         layout.txtapell_paciente.text = paciente.apellido
         layout.txtedad_paciente.text = "${paciente.edad}"

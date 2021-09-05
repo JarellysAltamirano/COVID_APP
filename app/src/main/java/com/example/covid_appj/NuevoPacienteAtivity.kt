@@ -21,6 +21,7 @@ class NuevoPacienteAtivity : AppCompatActivity() {
             edtApellido.setText(paciente.apellido)
             edtEdad.setText(paciente.edad.toString())
             edtSintomas.setText(paciente.sintomas)
+
             idpaciente = paciente.idPaciente
 
         }
@@ -32,11 +33,11 @@ class NuevoPacienteAtivity : AppCompatActivity() {
             val apellido = edtApellido.text.toString()
             val edad = edtEdad.text.toString().toInt()
             val sintomas = edtSintomas.text.toString()
+            val direccion = edtDirecionPacien.text.toString()
 
-            val paciente = paciente(nombre, apellido, edad, sintomas, R.drawable.ic_launcher_background)
+            val paciente = paciente(nombre, apellido, edad, sintomas)
 
             if (idpaciente != null) {
-
                 CoroutineScope(Dispatchers.IO).launch {
                     paciente.idPaciente = idpaciente
 

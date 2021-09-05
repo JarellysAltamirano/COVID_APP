@@ -38,6 +38,7 @@ class PacienteActivity : AppCompatActivity() {
             apellidoPac.text = paciente.apellido
             edadPacien.text = "${paciente.edad}"
             sintomas_que_presenta.text = paciente.sintomas
+            direccion.text = paciente.direccion
         })
 
 
@@ -50,17 +51,17 @@ class PacienteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
-
             R.id.item_editar -> {
                 val intent = Intent(this, NuevoPacienteAtivity::class.java)
                 intent.putExtra("paciente", paciente)
                 startActivity(intent)
 
             }
+
             R.id.item_borrar -> {
                 pacienteLiveData.removeObservers(this)
+
                 CoroutineScope(Dispatchers.IO).launch {
                     database.pacientes().delete(paciente)
                     this@PacienteActivity.finish()

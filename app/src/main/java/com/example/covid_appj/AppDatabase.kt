@@ -8,12 +8,16 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [paciente::class], version = 1)
  abstract class AppDatabase : RoomDatabase(){
+
  abstract fun pacientes(): PacientesDao
+
  companion object{
      @Volatile
      private var INSTANCE: AppDatabase? = null
+
      fun getDatabase(context: Context): AppDatabase {
          val tempInstance = INSTANCE
+
          if (tempInstance != null){
              return tempInstance
          }
@@ -24,7 +28,9 @@ import androidx.room.RoomDatabase
                  "app_database"
 
              ).build()
+
              INSTANCE = instance
+
              return instance
          }
      }
