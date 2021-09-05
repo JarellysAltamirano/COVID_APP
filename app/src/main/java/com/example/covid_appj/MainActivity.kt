@@ -10,30 +10,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var listapaciente = emptyList<paciente>()
 
-        val adapter = pacienteAdapter(this, listapaciente)
+        var listapaciente= emptyList<paciente>()
+
         val database = AppDatabase.getDatabase(this)
+
         database.pacientes().getAll().observe(this, Observer {
             listapaciente = it
-            val adapter = pacienteAdapter(this, listapaciente)
-            lista.adapter = adapter
 
+            val adapter = pacienteAdapter(this, listapaciente)
+
+            lista.adapter = adapter
         })
 
-
-
-       lista.setOnItemClickListener { parent, view, position, id ->
-           val intent = Intent(this, PacienteActivity::class.java)
-           intent.putExtra("id",listapaciente[position].idPaciente)
-           startActivity(intent)
-       }
-        floatingActionButton.setOnClickListener {
-            val intent = Intent(this,NuevoPacienteAtivity::class.java)
+        lista.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, PacienteActivity::class.java)
+            intent.putExtra("id", listapaciente[position].idPaciente)
             startActivity(intent)
         }
 
+        floatingActionButton.setOnClickListener {
+            val intent = Intent(this, NuevoPacienteAtivity::class.java)
+            startActivity(intent)
+        }
     }
-
-
-    }
+}

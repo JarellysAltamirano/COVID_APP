@@ -11,14 +11,17 @@ class NuevoPacienteAtivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nuevo_paciente_ativity)
+
         var idpaciente: Int? = null
 
-        if (intent.hasExtra("paciente")){
+        if (intent.hasExtra("paciente")) {
             val paciente = intent.extras?.getSerializable("paciente") as paciente
+
             edtNombre.setText(paciente.nombre)
             edtApellido.setText(paciente.apellido)
-            edtEdad.setText(paciente.edad.toInt())
+            edtEdad.setText(paciente.edad.toString())
             edtSintomas.setText(paciente.sintomas)
+            idpaciente = paciente.idPaciente
 
         }
 
@@ -26,24 +29,27 @@ class NuevoPacienteAtivity : AppCompatActivity() {
 
         btnGuardar.setOnClickListener {
             val nombre = edtNombre.text.toString()
-
             val apellido = edtApellido.text.toString()
-
             val edad = edtEdad.text.toString().toInt()
-
             val sintomas = edtSintomas.text.toString()
 
-            val paciente = paciente(nombre, apellido, edad, sintomas)
+            val paciente = paciente(nombre, apellido, edad, sintomas, R.drawable.ic_launcher_background)
 
             if (idpaciente != null) {
+
                 CoroutineScope(Dispatchers.IO).launch {
                     paciente.idPaciente = idpaciente
+
                     database.pacientes().update(paciente)
+
                     this@NuevoPacienteAtivity.finish()
+
                 }
             } else {
+
                 CoroutineScope(Dispatchers.IO).launch {
                     database.pacientes().insertAll(paciente)
+
                     this@NuevoPacienteAtivity.finish()
                 }
 

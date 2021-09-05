@@ -1,10 +1,7 @@
 package com.example.covid_appj
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface PacientesDao {
@@ -21,5 +18,8 @@ interface PacientesDao {
 
     @Update
     fun update(paciente: paciente)
+
+    @Delete
+    fun delete(paciente: paciente)
 
 }
