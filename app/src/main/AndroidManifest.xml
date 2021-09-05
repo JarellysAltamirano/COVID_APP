@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.COVID_APPJ">
-        <activity android:name=".NuevoPacienteAtivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".NuevoPacienteAtivity" />
         <activity android:name=".PacienteActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Bienvenida">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
