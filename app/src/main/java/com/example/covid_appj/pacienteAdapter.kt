@@ -17,6 +17,7 @@ class pacienteAdapter(private val mContext: Context, private val listapaciente: 
         layout.txtapell_paciente.text = paciente.apellido
         layout.txtedad_paciente.text = "${paciente.edad}"
         layout.txtsintomas_paciente.text = paciente.sintomas
+        layout.txtdireccion.text = paciente.direccion
 
         return layout
 

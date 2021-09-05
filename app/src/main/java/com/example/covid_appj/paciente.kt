@@ -10,8 +10,9 @@ class paciente(
     val nombre: String,
     val apellido: String,
     val edad: Int,
-    val sintomas: String,
     val direccion: String,
+    val sintomas: String,
+
     @PrimaryKey(autoGenerate = true)
     var idPaciente: Int = 0
 ) : Serializable

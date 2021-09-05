@@ -37,8 +37,9 @@ class PacienteActivity : AppCompatActivity() {
             nombrePaciente.text = paciente.nombre
             apellidoPac.text = paciente.apellido
             edadPacien.text = "${paciente.edad}"
+            direccion_pac.text = paciente.direccion
             sintomas_que_presenta.text = paciente.sintomas
-            direccion.text = paciente.direccion
+
         })
 
 
